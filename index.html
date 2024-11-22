@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes API</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>jokes API</h1>
+
+    <ul id="book-list">
+
+    </ul>
+
+    <script>
+        var booklist = document.getElementById("book-list");
+
+        //var key ="AIzaSyAYlf1A_wu8xAwW3uIpQsH39JPj_OPtsQo";
+        var url = "https://v2.jokeapi.dev/joke/Programming?amount=5";
+
+        fetch(url).then(function (response) {
+        // console.log(response);
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+
+          data.jokes.forEach(function (joke) {
+            
+          booklist.innerHTML += "<li> <h2>" + joke.delivery  + "</h2> </li>";
+          }); 
+        });
+
+    </script>
+</body>
+</html>
